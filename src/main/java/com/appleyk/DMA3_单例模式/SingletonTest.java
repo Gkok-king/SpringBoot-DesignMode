@@ -1,9 +1,6 @@
 package com.appleyk.DMA3_单例模式;
 
-import com.appleyk.DMA3_单例模式.DM3.Singleton1;
-import com.appleyk.DMA3_单例模式.DM3.Singleton2;
-import com.appleyk.DMA3_单例模式.DM3.Singleton3;
-import com.appleyk.DMA3_单例模式.DM3.Singleton4;
+import com.appleyk.DMA3_单例模式.DM3.*;
 
 /**
  * <p>单例模式测试</p>
@@ -39,6 +36,11 @@ public class SingletonTest {
         // 4、单例模式 -- 内部静态工厂类提前创建好实例，JVM保证instance只创建一次，且线程安全
         Singleton4 singleton4 = Singleton4.getInstance();
         singleton4.show();
+        System.out.println("==================分割线");
+
+        // 5、单例模式 -- 在类加载时创建实例，会浪费一些资源
+        Singleton5 singleton5 = Singleton5.getInstance();
+        singleton5.show();
 
         /**
          * 以上四种单例模式，没有一种是十全十美的

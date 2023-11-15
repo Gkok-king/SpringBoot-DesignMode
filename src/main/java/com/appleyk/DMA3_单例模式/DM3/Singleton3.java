@@ -16,6 +16,7 @@ public class Singleton3 {
     private static Singleton3 instance = null;
 
     /**
+     * 支持延迟加载、又支持高并发的
      * 区别于Singleton2,注意synchronized关键字【同步块】的位置
      * @return
      */
@@ -29,6 +30,27 @@ public class Singleton3 {
         }
         return instance;
     }
+
+    /**
+     * spring源码中bean工厂拿取实例时  getSingleton方法
+     */
+    // protected Object getSingleton(String beanName, boolean allowEarlyReference) {
+    //     Object singletonObject = this.singletonObjects.get(beanName);
+    //     if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
+    //         synchronized (this.singletonObjects) {
+    //             singletonObject = this.earlySingletonObjects.get(beanName);
+    //             if (singletonObject == null && allowEarlyReference) {
+    //                 ObjectFactory<?> singletonFactory = this.singletonFactories.get(beanName);
+    //                 if (singletonFactory != null) {
+    //                     singletonObject = singletonFactory.getObject();
+    //                     this.earlySingletonObjects.put(beanName, singletonObject);
+    //                     this.singletonFactories.remove(beanName);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return (singletonObject != NULL_OBJECT ? singletonObject : null);
+    // }
 
     public void show(){
         System.out.println("你好，我是单例模式三！");
